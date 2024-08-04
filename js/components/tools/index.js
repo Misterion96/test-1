@@ -20,8 +20,10 @@ const sectionEls = sections.map(section => {
 
     return `<div class="tools__item bg-primary" data-title="${section.title}">${icons.join('')}</div>`
 });
-export function createToolsBox() {
-    return `<div class="tools island bg-second">
-<h2>Tools</h2>
-<div class="tools__list">${sectionEls.join('')}</div></div>`
+export function createToolsSection() {
+    return `
+<div class="tools island bg-second">
+    <h2 contenteditable data-key="tools.title">Tools</h2>
+    <div class="tools__list">${sectionEls.join('')}</div>
+</div>`
 }

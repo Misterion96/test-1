@@ -1,14 +1,22 @@
 .tools {
     grid-area: 2 / 4 / 3 / 5;
+    padding-bottom: 0 !important;
+    @media screen and (max-width: 600px) {
+        grid-area: 4 / 1 / 5 / 5;
+        --list-direction: row;
+        --list-padding-bottom: 12px;
+    }
 }
 
 .tools__list {
     display: flex;
     gap: 12px;
-    flex-direction: column;
+    flex-direction: var(--list-direction, column);
+    padding-bottom: var(--list-padding-bottom, 0);
 }
 
 .tools__item {
+    flex: 1;
     position: relative;
     padding: 16px 4px;
     border-radius: 6px;
@@ -34,7 +42,14 @@
 }
 
 .tools__item__logo {
-    max-width: 20px;
+    max-width: 16px;
     aspect-ratio: 1;
     width: 100%;
+}
+
+.tools__item__logo:nth-of-type(n - 1){
+    justify-self: end;
+}
+.tools__item__logo:nth-of-type(2n){
+    justify-self: start;
 }
